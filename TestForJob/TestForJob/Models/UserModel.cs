@@ -6,7 +6,7 @@ namespace TestForJob.Models
     public class UserModel
     {
         //This field fills automatically, it is not necessary a GUI
-        public int userId { get; set; }
+        public int id { get; set; }
 
         [Display(Description ="Type the user's first name")]
         [Required(ErrorMessage ="It is necessary the user's first name")]
