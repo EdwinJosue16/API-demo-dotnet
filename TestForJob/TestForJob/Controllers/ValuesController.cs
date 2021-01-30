@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using TestForJob.Models;
 
 namespace TestForJob.Controllers
 {
@@ -12,6 +13,7 @@ namespace TestForJob.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
+            DataBaseHandler dataHandler = new DataBaseHandler();
             return new string[] { "value1", "value2" };
         }
 
