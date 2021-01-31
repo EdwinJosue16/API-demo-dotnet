@@ -9,7 +9,8 @@ namespace TestForJob.Controllers
         // GET api/UsersInfoWS
         public IEnumerable<UserModel> Get()
         {
-            return new DataBaseHandler().getUsersBuilder();
+            new UsersVisualizationHandler().exportAllUsersInfoToExcel();
+            return new UsersVisualizationHandler().getAllUsers();
         }
     }
 }

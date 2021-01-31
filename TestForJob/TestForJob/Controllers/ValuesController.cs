@@ -12,7 +12,6 @@ namespace TestForJob.Controllers
         // GET api/values
         public IEnumerable<string> Get()
         {
-            DataBaseHandler dataHandler = new DataBaseHandler();
             return new string[] { "value1", "value2" };
         }
 
