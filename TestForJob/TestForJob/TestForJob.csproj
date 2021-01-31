@@ -192,12 +192,14 @@
     <Compile Include="Controllers\PromoUsersWSController.cs" />
     <Compile Include="Controllers\PromoUsersManagementHandler.cs" />
     <Compile Include="Controllers\PromoUsersVisualizationHandler.cs" />
+    <Compile Include="Controllers\RequestProcessor.cs" />
     <Compile Include="Controllers\SystemUsersManagementHandler.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseUserModel.cs" />
+    <Compile Include="Models\LoginValuesModel.cs" />
     <Compile Include="Models\PromoUserModel.cs" />
     <Compile Include="Models\SystemUserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
