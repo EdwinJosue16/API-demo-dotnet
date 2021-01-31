@@ -4,15 +4,15 @@ using SqlKata.Execution;
 
 namespace TestForJob.Controllers
 {
-    public class UsersManagementHandler : DataBaseHandler
+    public class PromoUsersManagementHandler : DataBaseHandler
     {
-        public UsersManagementHandler()
+        public PromoUsersManagementHandler()
         {
             initializeComponents();
         }
 
         //This method receive a function (update, delete or insert) and user that will be modify
-        public int doDataBaseOperation(Func<UserModel, int> dataBaseOperation, UserModel user)
+        public int doDataBaseOperation(Func<PromoUserModel, int> dataBaseOperation, PromoUserModel user)
         {
             int affectedRows = 0;
             try
@@ -26,9 +26,9 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int insertUser(UserModel user)
+        public int insertUser(PromoUserModel user)
         {
-            int affectedRows = factory.Query("Users").Insert(new
+            int affectedRows = factory.Query("PromoUsers").Insert(new
                 {
                     user.firstName,
                     user.lastName,
@@ -40,9 +40,9 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int updateUser(UserModel user)
+        public int updateUser(PromoUserModel user)
         {
-            int affectedRows = factory.Query("Users").Where("id", "=", user.id).Update(new
+            int affectedRows = factory.Query("PromoUsers").Where("id", "=", user.id).Update(new
             {
                 firstName = user.firstName,
                 lastName = user.lastName,
@@ -54,9 +54,9 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int deleteUser(UserModel user)
+        public int deleteUser(PromoUserModel user)
         {
-            int affectedRows = factory.Query("Users").Where("id", "=", user.id).Delete();
+            int affectedRows = factory.Query("PromoUsers").Where("id", "=", user.id).Delete();
             return affectedRows;
         }
     }

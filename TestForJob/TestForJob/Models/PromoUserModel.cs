@@ -6,7 +6,7 @@ using System.Data;
 
 namespace TestForJob.Models
 {
-    public class UserModel : BaseModel
+    public class PromoUserModel : BaseModel
     {
         //This field fills automatically, it is not necessary a GUI
         public int id { get; set; }

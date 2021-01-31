@@ -8,13 +8,13 @@ using SpreadsheetLight;
 
 namespace TestForJob.Controllers
 {
-    public class UsersVisualizationHandler : DataBaseHandler
+    public class PromoUsersVisualizationHandler : DataBaseHandler
     {
         private const bool INCLUDE_HEADERS_INTO_EXCEL = true;
         private const int CELL_REFERENCE = 1;
         private const string EXCEL_FILES_NAME = "users_information.xlsx";
 
-        public UsersVisualizationHandler()
+        public PromoUsersVisualizationHandler()
         {
             initializeComponents();
         }
@@ -34,7 +34,7 @@ namespace TestForJob.Controllers
             excelDocument.SaveAs(pathFile);
         }
 
-        private DataTable usersListToDataTable(IEnumerable<UserModel> usersInformation)
+        private DataTable usersListToDataTable(IEnumerable<PromoUserModel> usersInformation)
         {
             DataTable usersDataTable = new DataTable();
 
@@ -45,7 +45,7 @@ namespace TestForJob.Controllers
             usersDataTable.Columns.Add("Promo type", typeof(string));
             usersDataTable.Columns.Add("Entry date", typeof(string));
 
-            foreach (UserModel user in usersInformation)
+            foreach (PromoUserModel user in usersInformation)
             {
                 user.convertToDataRow(usersDataTable);
             }
@@ -53,41 +53,44 @@ namespace TestForJob.Controllers
             return usersDataTable;
         }
 
-        public IEnumerable<UserModel> getAllUsers()
+        public IEnumerable<PromoUserModel> getAllUsers()
         {
-            IEnumerable<UserModel> allUsers = factory.Query("Users").Select("*").Get<UserModel>();
+            IEnumerable<PromoUserModel> allUsers = factory.
+                                                    Query("PromoUsers").
+                                                    Select("*").
+                                                    Get<PromoUserModel>();
             return allUsers;
         }
 
-        public IEnumerable<UserModel> getUserByPromo(string typeOfPromo)
+        public IEnumerable<PromoUserModel> getUserByPromo(string typeOfPromo)
         {
-            IEnumerable<UserModel> usersByPromo = factory.
-                                                    Query("Users").
+            IEnumerable<PromoUserModel> usersByPromo = factory.
+                                                    Query("PromoUsers").
                                                     Select("*").
                                                     Where("typeOfPromo","=",typeOfPromo).
-                                                    Get<UserModel>();
+                                                    Get<PromoUserModel>();
             return usersByPromo;
         }
 
-        public UserModel getUserByPhoneNumber(string phoneNumber)
+        public PromoUserModel getUserByPhoneNumber(string phoneNumber)
         {
-            UserModel userByPhoneNumber = factory.
-                                            Query("Users").
+            PromoUserModel userByPhoneNumber = factory.
+                                            Query("PromoUsers").
                                             Select("*").
                                             Where("cellPhoneNumber", "=", phoneNumber).
-                                            FirstOrDefault<UserModel>();
+                                            FirstOrDefault<PromoUserModel>();
             return userByPhoneNumber;
         }
 
-        public UserModel getUsersBetweenDates(DateTime minDate, DateTime maxDate)
+        public PromoUserModel getUsersBetweenDates(DateTime minDate, DateTime maxDate)
         {
-            UserModel usersBetweenDates = factory.
-                                            Query("Users").
+            PromoUserModel usersBetweenDates = factory.
+                                            Query("PromoUsers").
                                             Select("*").
                                             Where("entryDate", ">=", minDate).
                                             Where("entryDate", "<=", maxDate).
                                             OrderBy("entryDate").
-                                            FirstOrDefault<UserModel>();
+                                            FirstOrDefault<PromoUserModel>();
             return usersBetweenDates;
         }
     }
