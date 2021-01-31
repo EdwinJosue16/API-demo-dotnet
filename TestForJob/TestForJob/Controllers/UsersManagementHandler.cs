@@ -11,6 +11,21 @@ namespace TestForJob.Controllers
             initializeComponents();
         }
 
+        //This method receive a function (update, delete or insert) and user that will be modify
+        public int doDataBaseOperation(Func<UserModel, int> dataBaseOperation, UserModel user)
+        {
+            int affectedRows = 0;
+            try
+            {
+                affectedRows = dataBaseOperation(user);
+            }
+            catch (Exception error)
+            {
+                throw error;
+            }
+            return affectedRows;
+        }
+
         public int insertUser(UserModel user)
         {
             int affectedRows = factory.Query("Users").Insert(new
@@ -42,21 +57,6 @@ namespace TestForJob.Controllers
         public int deleteUser(UserModel user)
         {
             int affectedRows = factory.Query("Users").Where("id", "=", user.id).Delete();
-            return affectedRows;
-        }
-
-        //This method receive a function (update, delete or insert) and user that will be modify
-        public int doDataBaseOperation(Func <UserModel,int> dataBaseOperation, UserModel user)
-        {
-            int affectedRows = 0;
-            try
-            {
-                affectedRows = dataBaseOperation(user);
-            }
-            catch (Exception error)
-            {
-                throw error;
-            }
             return affectedRows;
         }
     }
