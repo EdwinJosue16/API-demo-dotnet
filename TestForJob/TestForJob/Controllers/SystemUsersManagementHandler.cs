@@ -1,16 +1,12 @@
-﻿
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using TestForJob.Models;
 using SqlKata.Execution;
-using System;
-using System.Data;
 
 namespace TestForJob.Controllers
 {
-    public class UsersValidationHandler : DataBaseHandler
+    public class SystemUsersManagementHandler : DataBaseHandler
     {
-        public UsersValidationHandler()
+        public SystemUsersManagementHandler()
         {
             initializeComponents();
         }
@@ -24,6 +20,16 @@ namespace TestForJob.Controllers
                                 Where("password", "=", externalUser.password).
                                 FirstOrDefault<SystemUserModel>();
             return systemUser;
+        }
+
+        public int changeRoleToUser(SystemUserModel user)
+        {
+            int affectedRows = factory.Query("SystemUsers").Where("email", "=", user.email).Update(new
+            {
+                role = user.role
+            });
+
+            return affectedRows;
         }
 
         public bool isValidUser(SystemUserModel systemUser)

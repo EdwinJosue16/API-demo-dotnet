@@ -192,7 +192,7 @@
     <Compile Include="Controllers\PromoUsersWSController.cs" />
     <Compile Include="Controllers\PromoUsersManagementHandler.cs" />
     <Compile Include="Controllers\PromoUsersVisualizationHandler.cs" />
-    <Compile Include="Controllers\UsersValidationHandler.cs" />
+    <Compile Include="Controllers\SystemUsersManagementHandler.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
