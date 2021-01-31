@@ -12,6 +12,7 @@ namespace TestForJob.Controllers
     {
         private const bool INCLUDE_HEADERS_INTO_EXCEL = true;
         private const int CELL_REFERENCE = 1;
+        private const string EXCEL_FILES_NAME = "users_information.xlsx";
 
         public UsersVisualizationHandler()
         {
@@ -21,7 +22,7 @@ namespace TestForJob.Controllers
 
         public void exportAllUsersInfoToExcel()
         {
-            string pathFile = AppDomain.CurrentDomain.BaseDirectory + "users_information.xlsx";
+            string pathFile = AppDomain.CurrentDomain.BaseDirectory + EXCEL_FILES_NAME;
             SLDocument excelDocument = new SLDocument();
             DataTable usersTable = usersListToDataTable( getAllUsers() );
             excelDocument.ImportDataTable(

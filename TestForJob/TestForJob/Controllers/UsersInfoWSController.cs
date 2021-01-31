@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 using TestForJob.Models;
+using System;
 
 namespace TestForJob.Controllers
 {
@@ -9,7 +10,6 @@ namespace TestForJob.Controllers
         // GET api/UsersInfoWS
         public IEnumerable<UserModel> Get()
         {
-            new UsersVisualizationHandler().exportAllUsersInfoToExcel();
             return new UsersVisualizationHandler().getAllUsers();
         }
     }

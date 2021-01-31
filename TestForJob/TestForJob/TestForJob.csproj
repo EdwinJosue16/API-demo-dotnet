@@ -190,6 +190,7 @@
     <Compile Include="Controllers\DataBaseHandler.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersInfoWSController.cs" />
+    <Compile Include="Controllers\UsersManagementHandler.cs" />
     <Compile Include="Controllers\UsersVisualizationHandler.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
