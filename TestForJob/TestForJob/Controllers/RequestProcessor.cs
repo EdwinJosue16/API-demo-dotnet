@@ -23,13 +23,13 @@ namespace TestForJob.Controllers
             return response;
         }
 
-        private SystemUserModel getUserFromDB(LoginValuesModel loginValues)
+        public SystemUserModel getUserFromDB(LoginValuesModel loginValues)
         {
             SystemUserModel externalUser = buildSystemUserModel(loginValues);
             return systemUsersManager.getSystemUser(externalUser);
         }
 
-        private SystemUserModel buildSystemUserModel(LoginValuesModel loginValues)
+        public SystemUserModel buildSystemUserModel(LoginValuesModel loginValues)
         {
             return new SystemUserModel { email = loginValues.email, password = loginValues.password };
         }

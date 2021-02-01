@@ -1,6 +1,5 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-
 namespace TestForJob
 {
     public class FilterConfig
@@ -8,6 +7,7 @@ namespace TestForJob
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            //filters.Add(new Filters.SessionValidation());
         }
     }
 }
