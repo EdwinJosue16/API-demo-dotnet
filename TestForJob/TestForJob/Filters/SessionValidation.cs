@@ -10,7 +10,7 @@ namespace TestForJob.Filters
     {
         private SystemUserModel user;
         private RequestProcessor processor= new RequestProcessor();
-        private const string LOGIN_VIEW = "/Home/Index"; //for now...
+        private const string LOGIN_VIEW = "/Access/Login";
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             try

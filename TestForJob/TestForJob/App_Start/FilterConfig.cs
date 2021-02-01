@@ -7,7 +7,7 @@ namespace TestForJob
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
-            //filters.Add(new Filters.SessionValidation());
+            filters.Add(new Filters.SessionValidation());
         }
     }
 }
