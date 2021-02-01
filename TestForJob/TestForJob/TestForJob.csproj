@@ -190,6 +190,7 @@
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\DataBaseHandler.cs" />
     <Compile Include="Controllers\Encryptor.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PromoUsersWSController.cs" />
     <Compile Include="Controllers\PromoUsersManagementHandler.cs" />
@@ -260,6 +261,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Access\Login.cshtml" />
+    <Content Include="Views\Error\UnauthorizedOperation.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

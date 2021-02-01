@@ -1,11 +1,10 @@
 ﻿using TestForJob.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace PersimosMVC.Filters
+namespace TestForJob.Filters
 {
     [AttributeUsage(AttributeTargets.Method, AllowMultiple =false)]
     public class AuthorizeUser : AuthorizeAttribute
@@ -14,10 +13,11 @@ namespace PersimosMVC.Filters
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            string operationName = ""; //It is necessary define this name
-            string moduleName = ""; //It is necessary define this name
+            string operationName = "Create"; //It is for example
+            string moduleName = "Management"; //It is for example
             try
             {
+                //Obtain session user
                 user = (SystemUserModel) HttpContext.Current.Session["SystemUser"];
                 if (!user.canModifyPromoUsers())
                 {
