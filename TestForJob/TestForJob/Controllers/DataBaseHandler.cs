@@ -1,8 +1,5 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data.SqlClient; // Sql Server Connection Namespace
-using TestForJob.Models;
-using SqlKata;
 using SqlKata.Execution;
 using SqlKata.Compilers;
 
