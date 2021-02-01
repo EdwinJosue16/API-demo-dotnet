@@ -16,7 +16,7 @@ namespace TestForJob.Controllers
         {
             bool response = false;
             SystemUserModel retrievedUserFromDB = getUserFromDB(loginValues);
-            if (systemUsersManager.isValidUser(retrievedUserFromDB))
+            if (isValidUser(retrievedUserFromDB))
             {
                 response = retrievedUserFromDB.canVisualizePromoUsers();
             }
@@ -34,6 +34,10 @@ namespace TestForJob.Controllers
             return new SystemUserModel { email = loginValues.email, password = loginValues.password };
         }
 
+        public bool isValidUser(SystemUserModel systemUser)
+        {
+            return systemUser != null;
+        }
 
     }
 }
