@@ -10,11 +10,5 @@ namespace TestForJob.Controllers
             ViewBag.Title = "Home Page";
             return View();
         }
-
-        [AuthorizeUser()]
-        public ActionResult Create()
-        {
-            return View();
-        }
     }
 }

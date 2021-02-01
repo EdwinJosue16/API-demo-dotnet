@@ -13,6 +13,16 @@ namespace TestForJob.Controllers
             initializeComponents();
         }
 
+        public PromoUserModel findUserById(int userId)
+        {
+            PromoUserModel userById = factory.
+                                 Query(ASSOCIATED_TABLE_NAME).
+                                 Select("*").
+                                 Where("id", "=", userId).
+                                 FirstOrDefault<PromoUserModel>();
+            return userById;
+        }
+
         public override int insertUser(BaseUserModel baseUser)
         {
             PromoUserModel user = (PromoUserModel)baseUser;

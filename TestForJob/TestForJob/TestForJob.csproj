@@ -189,6 +189,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccessController.cs" />
     <Compile Include="Controllers\DataBaseHandler.cs" />
+    <Compile Include="Controllers\DisplayPromoUserController.cs" />
+    <Compile Include="Controllers\ManagePromoUserController.cs" />
     <Compile Include="Controllers\Encryptor.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -263,6 +265,8 @@
     <Content Include="Views\Access\Login.cshtml" />
     <Content Include="Views\Error\UnauthorizedOperation.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\ManagePromoUser\ShowOptions.cshtml" />
+    <Content Include="Views\DisplayPromoUser\ShowOptions.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

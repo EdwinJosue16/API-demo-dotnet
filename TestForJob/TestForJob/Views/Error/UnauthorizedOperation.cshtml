@@ -8,18 +8,6 @@
         <h2 class="headline text-red">Error</h2>
         <div class="error-content">
             <h3><i class="fa fa-warning text-red"></i>Unauthorized</h3>
-            @if (ViewBag.operation != "")
-            {
-                <p>Operation: @ViewBag.operation </p>
-            }
-            @if (ViewBag.module != "")
-            {
-                <p>Module: @ViewBag.module</p>
-            }
-            @if (ViewBag.msgErrorExcepcion != "")
-            {
-                <p>@ViewBag.msgErrorExcepcion</p>
-            }
         </div>
     </div>
 </section>

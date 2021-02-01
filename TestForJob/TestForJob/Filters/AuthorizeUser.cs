@@ -13,8 +13,8 @@ namespace TestForJob.Filters
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            string operationName = "Create"; //It is for example
-            string moduleName = "Management"; //It is for example
+            string operationName = "Operation name"; //It is for example
+            string moduleName = "Module name"; //It is for example
             try
             {
                 //Obtain session user
