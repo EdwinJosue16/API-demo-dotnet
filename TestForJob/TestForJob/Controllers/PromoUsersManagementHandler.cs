@@ -4,31 +4,19 @@ using SqlKata.Execution;
 
 namespace TestForJob.Controllers
 {
-    public class PromoUsersManagementHandler : DataBaseHandler
+    public class PromoUsersManagementHandler : UsersManagementHandler
     {
+        private const string ASSOCIATED_TABLE_NAME = "PromoUsers";
+
         public PromoUsersManagementHandler()
         {
             initializeComponents();
         }
 
-        //This method receive a function (update, delete or insert) and user that will be modify
-        public int doDataBaseOperation(Func<PromoUserModel, int> dataBaseOperation, PromoUserModel user)
+        public override int insertUser(BaseUserModel baseUser)
         {
-            int affectedRows = 0;
-            try
-            {
-                affectedRows = dataBaseOperation(user);
-            }
-            catch (Exception error)
-            {
-                throw error;
-            }
-            return affectedRows;
-        }
-
-        public int insertUser(PromoUserModel user)
-        {
-            int affectedRows = factory.Query("PromoUsers").Insert(new
+            PromoUserModel user = (PromoUserModel)baseUser;
+            int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Insert(new
                 {
                     user.firstName,
                     user.lastName,
@@ -40,9 +28,10 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int updateUser(PromoUserModel user)
+        public override int updateUser(BaseUserModel baseUser)
         {
-            int affectedRows = factory.Query("PromoUsers").Where("id", "=", user.id).Update(new
+            PromoUserModel user = (PromoUserModel)baseUser;
+            int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Where("id", "=", user.id).Update(new
             {
                 firstName = user.firstName,
                 lastName = user.lastName,
@@ -54,9 +43,10 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int deleteUser(PromoUserModel user)
+        public override int deleteUser(BaseUserModel baseUser)
         {
-            int affectedRows = factory.Query("PromoUsers").Where("id", "=", user.id).Delete();
+            PromoUserModel user = (PromoUserModel)baseUser;
+            int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Where("id", "=", user.id).Delete();
             return affectedRows;
         }
     }

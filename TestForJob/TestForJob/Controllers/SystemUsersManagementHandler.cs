@@ -5,7 +5,7 @@ using System;
 
 namespace TestForJob.Controllers
 {
-    public class SystemUsersManagementHandler : DataBaseHandler
+    public class SystemUsersManagementHandler : UsersManagementHandler
     {
         private const string ASSOCIATED_TABLE_NAME = "SystemUsers";
 
@@ -25,23 +25,9 @@ namespace TestForJob.Controllers
             return systemUser;
         }
 
-        //This method receive a function (update, delete or insert) and user that will be modify
-        public int doDataBaseOperation(Func<SystemUserModel, int> dataBaseOperation, SystemUserModel user)
+        public override int insertUser(BaseUserModel baseUser)
         {
-            int affectedRows = 0;
-            try
-            {
-                affectedRows = dataBaseOperation(user);
-            }
-            catch (Exception error)
-            {
-                throw error;
-            }
-            return affectedRows;
-        }
-
-        public int insertUser(SystemUserModel user)
-        {
+            SystemUserModel user = (SystemUserModel) baseUser;
             int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Insert(new
             {
                 user.firstName,
@@ -56,8 +42,9 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int updateUser(SystemUserModel user)
+        public override int updateUser(BaseUserModel baseUser)
         {
+            SystemUserModel user = (SystemUserModel)baseUser;
             int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Where("email", "=", user.email).Update(new
             {
                 firstName = user.firstName,
@@ -71,8 +58,9 @@ namespace TestForJob.Controllers
             return affectedRows;
         }
 
-        public int deleteUser(SystemUserModel user)
+        public override int deleteUser(BaseUserModel baseUser)
         {
+            SystemUserModel user = (SystemUserModel)baseUser;
             int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Where("email", "=", user.email).Delete();
             return affectedRows;
         }

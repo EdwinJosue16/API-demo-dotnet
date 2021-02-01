@@ -195,6 +195,7 @@
     <Compile Include="Controllers\PromoUsersVisualizationHandler.cs" />
     <Compile Include="Controllers\RequestProcessor.cs" />
     <Compile Include="Controllers\SystemUsersManagementHandler.cs" />
+    <Compile Include="Controllers\UsersManagementHandler.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

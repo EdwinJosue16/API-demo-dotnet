@@ -9,10 +9,10 @@ namespace TestForJob.Controllers
         public Object Get()
         {
             var user = new PromoUserModel {
-                firstName = "TEST2",
-                lastName = "TEST2",
-                cellPhoneNumber = "TEST2",
-                typeOfPromo = "TEST2",
+                firstName = "TEST3",
+                lastName = "TEST3",
+                cellPhoneNumber = "TEST3",
+                typeOfPromo = "TEST3",
                 entryDate = DateTime.Now
             };
             var x = new PromoUsersManagementHandler();
