@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using TestForJob.Models;
 using SqlKata.Execution;
-using System;
 
 namespace TestForJob.Controllers
 {

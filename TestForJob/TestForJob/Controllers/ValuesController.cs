@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using TestForJob.Models;
 namespace TestForJob.Controllers
 {
     public class ValuesController : ApiController
@@ -15,10 +11,29 @@ namespace TestForJob.Controllers
             return new string[] { "value1", "value2" };
         }
         
+        //It is for testing
         // GET api/values/5
-        public string Get(int id)
+        public Object Get(int id)
         {
-            return "value";
+            const int PHONE_FILTER = 0;
+            const int PROMO_FILTER = 1;
+            var promoDisplay = new PromoUsersVisualizationHandler();
+            Object viewResult;
+
+            switch (id)
+            {
+                case PROMO_FILTER:
+                    viewResult = promoDisplay.getUserByPromo("type-2");
+                    break;
+
+                case PHONE_FILTER:
+                    viewResult = promoDisplay.getUserByPhoneNumber("12345678");
+                    break;
+                default:
+                    viewResult = promoDisplay.getAllUsers();
+                    break;
+            }
+            return viewResult;
         }
 
         // POST api/values
@@ -26,8 +41,8 @@ namespace TestForJob.Controllers
         {
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        // PUT api/values/5 
+        public void Put(int id)
         {
         }
 
