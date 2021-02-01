@@ -11,7 +11,7 @@ namespace TestForJob.Controllers
         public Object Post([FromBody]LoginValuesModel loginValues)
         {
             RequestProcessor processor = new RequestProcessor();
-            if (processor.requestCanBeProcessed(loginValues))
+            if (processor.isPossibleReturnPromoUsersInfo(loginValues))
             {
                 return new PromoUsersVisualizationHandler().getAllUsers();
             }

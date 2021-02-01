@@ -12,11 +12,10 @@ namespace TestForJob.Controllers
             systemUsersManager = new SystemUsersManagementHandler();
         }
 
-        public bool requestCanBeProcessed(LoginValuesModel loginValues)
+        public bool isPossibleReturnPromoUsersInfo(LoginValuesModel loginValues)
         {
             bool response = false;
-            SystemUserModel externalUser = buildSystemUserModel(loginValues);
-            SystemUserModel retrievedUserFromDB = systemUsersManager.getSystemUser(externalUser);
+            SystemUserModel retrievedUserFromDB = getUserFromDB(loginValues);
             if (systemUsersManager.isValidUser(retrievedUserFromDB))
             {
                 response = retrievedUserFromDB.canVisualizePromoUsers();
@@ -24,9 +23,17 @@ namespace TestForJob.Controllers
             return response;
         }
 
+        private SystemUserModel getUserFromDB(LoginValuesModel loginValues)
+        {
+            SystemUserModel externalUser = buildSystemUserModel(loginValues);
+            return systemUsersManager.getSystemUser(externalUser);
+        }
+
         private SystemUserModel buildSystemUserModel(LoginValuesModel loginValues)
         {
             return new SystemUserModel { email = loginValues.email, password = loginValues.password };
         }
+
+
     }
 }

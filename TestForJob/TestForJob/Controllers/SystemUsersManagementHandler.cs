@@ -17,7 +17,7 @@ namespace TestForJob.Controllers
                                 Query("SystemUsers").
                                 Select("*").
                                 Where("email", "=", externalUser.email).
-                                Where("password", "=", externalUser.password).
+                                Where("password", "=", Encryptor.GetSHA256(externalUser.password)).
                                 FirstOrDefault<SystemUserModel>();
             return systemUser;
         }

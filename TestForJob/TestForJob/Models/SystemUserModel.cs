@@ -7,8 +7,8 @@ namespace TestForJob.Models
 {
     public class SystemUserModel : BaseUserModel
     {
-        protected const int ADMIN_ROL = 1;
-        protected const int COMMERCIAL_ROL = 2;
+        protected const int ADMIN_ROLE = 1;
+        protected const int COMMERCIAL_ROLE = 2;
 
         [EmailAddress(ErrorMessage = "Invalid email's format")]
         [StringLength(100, ErrorMessage = "The email must have less than 100 characters")]
@@ -52,12 +52,12 @@ namespace TestForJob.Models
 
         public bool canModifyPromoUsers()
         {
-            return this.role == ADMIN_ROL;
+            return this.role == ADMIN_ROLE;
         }
 
         public bool canVisualizePromoUsers()
         {
-            return this.role == ADMIN_ROL || this.role == COMMERCIAL_ROL;
+            return this.role == ADMIN_ROLE || this.role == COMMERCIAL_ROLE;
         }
     }
 }
