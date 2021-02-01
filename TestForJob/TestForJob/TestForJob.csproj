@@ -267,6 +267,7 @@
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\ManagePromoUser\ShowOptions.cshtml" />
     <Content Include="Views\DisplayPromoUser\ShowOptions.cshtml" />
+    <Content Include="UML_Class_Project.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
