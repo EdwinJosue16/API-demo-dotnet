@@ -45,13 +45,14 @@ namespace TestForJob.Controllers
         public override int updateUser(BaseUserModel baseUser)
         {
             SystemUserModel user = (SystemUserModel)baseUser;
+            user.password = Encryptor.GetSHA256(user.password);
             int affectedRows = factory.Query(ASSOCIATED_TABLE_NAME).Where("email", "=", user.email).Update(new
             {
                 firstName = user.firstName,
                 lastName = user.lastName,
                 cellPhoneNumber = user.cellPhoneNumber,
                 entryDate = user.entryDate,
-                password = Encryptor.GetSHA256(user.password),
+                password = user.password,
                 role = user.role
             });
 
